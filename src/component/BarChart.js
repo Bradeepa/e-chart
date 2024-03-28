@@ -20,6 +20,10 @@ function BarChart(props) {
         autoSelected: 'zoom'
       }
     },
+    grid: {
+      left: '12%',
+      bottom: '10%'
+       },
     xAxis: {
       data: props.xAxisDataForBar
     },
