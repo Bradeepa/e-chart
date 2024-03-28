@@ -29,3 +29,18 @@ select:focus{
 .line-chart,.bar-chart{
   margin-left: 10px;
 }
+@media screen and (max-width:768px) {
+  #columnNames{
+    width:35%;
+  }
+  line-chart,.bar-chart{
+    width: 100%;
+  }
+  .toggleLinebar{
+    right: 14%;
+  }
+  .dropDown-column{
+    padding-left: 10px;
+    margin-left: -2rem;
+  }
+}
