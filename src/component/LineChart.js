@@ -25,13 +25,15 @@ function LineChart(props) {
       trigger: 'axis'
     },
     grid: {
-      left: '5%',
-      right: '15%',
+      left: '12%',
       bottom: '10%'
     },
     xAxis: {
       type: 'category',
-      data: props.xAxisDataForLine
+      data: props.xAxisDataForLine,
+       splitLine: {
+        show: false
+      }
     },
     yAxis: {
       type: 'value'
