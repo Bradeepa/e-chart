@@ -109,7 +109,7 @@ function TimeSeries() {
             }
           </select>
         </div>
-        <div className="col-2 ">
+        <div className="col-2 toggleLinebar">
           <div className="btn-group btn-group-lg" role="group">
             <button type="button" className={`btn btn-info btn-lg  ${(chartSelection === '' || chartSelection === 'lineChart') ? "active" : ''}`} onClick={showLinechart} >Line</button>
             <button type="button" className={`btn btn-info btn-lg  ${(chartSelection === 'BarChart') ? "active" : ''}`} onClick={showBarchart}>Bar</button>
