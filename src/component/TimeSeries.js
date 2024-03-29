@@ -12,6 +12,7 @@ function TimeSeries() {
   const [x_AxisdateForLine, setX_axisdatedForLine] = useState([])
   const [x_AxisdateForBar, setX_axisdatedForBar] = useState([]);
   const [y_AxisDataForBar, setY_AxisDataForBar] = useState([])
+  const [selectedcol, setSelectedCol] = useState('Open')
   let columnName = 'Open'
   const filteredMonthArr = [];
 
@@ -66,6 +67,7 @@ function TimeSeries() {
   const changeTimeSeries = (e, chartSelection) => {
     const targetValue = e.target.value;
     columnName = e.target.value;
+    setSelectedCol(e.target.value)
     if (chartSelection === 'lineChart' || chartSelection === '') {
       const displayChartData = columnData.map((item) => {
         return item[targetValue]
@@ -73,20 +75,25 @@ function TimeSeries() {
       setSelectedColumn(displayChartData)
     }
     else {
-      showBarchart()
+      showBarchart(e,columnName)
     }
 
   }
   const showLinechart = (e) => {
+    const displayChartData = columnData.map((item) => {
+      return item[selectedcol]
+    })
+    setSelectedColumn(displayChartData)
     setChartSelection('lineChart')
   }
-  const showBarchart = () => {
+  const showBarchart = (e, columnNam) => {
+    let valueforbar = columnNam === undefined ? selectedcol :columnNam;
     let totalValue = Array(x_AxisdateForBar.length).fill(0);
     let count = Array(x_AxisdateForBar.length).fill(0);
     columnData.forEach(entry => {
       let [month] = entry.Date.split('/');
       let monthIndex = parseInt(month) - 1;
-      totalValue[monthIndex] += parseFloat(entry[columnName]);
+      totalValue[monthIndex] += parseFloat(entry[valueforbar]);
       count[monthIndex]++;
     }
     )
