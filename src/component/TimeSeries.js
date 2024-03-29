@@ -81,8 +81,8 @@ function TimeSeries() {
     setChartSelection('lineChart')
   }
   const showBarchart = () => {
-    let totalValue = Array(12).fill(0);
-    let count = Array(12).fill(0);
+    let totalValue = Array(x_AxisdateForBar.length).fill(0);
+    let count = Array(x_AxisdateForBar.length).fill(0);
     columnData.forEach(entry => {
       let [month] = entry.Date.split('/');
       let monthIndex = parseInt(month) - 1;
